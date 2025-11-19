@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil Mahasiswa</title>
+  <link rel="stylesheet" href="Parhancss.css">
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    nav {
+      background-color: #222;
+      padding: 10px 20px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li { margin: 0 15px; }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      text-transform: capitalize;
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: #ffcc00; }
+    .content1, .container, .content3 {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: white;
+      margin: 20px auto;
+      border-radius: 10px;
+      max-width: 800px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    table {
+      margin: auto;
+      border-collapse: collapse;
+      width: 80%;
+    }
+    table th, table td {
+      padding: 10px;
+      border: 2px solid black;
+    }
+    footer {
+      background-color: #222;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #00acee;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover { color: #ffcc00; }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <ul>
+      <li><a href="#home">home</a></li>
+      <li><a href="#tentang">tentang</a></li>
+      <li><a href="#border">border</a></li>
+    </ul>
+  </nav>
+
+  <!-- HOME -->
+  <div id="home" class="content1">
+    <h1>Profil Mahasiswa</h1>
+  </div>
+
+  <!-- PROFIL -->
+  <div class="content1">
+    <img src="parhan.img" width="50%" height="50%" alt="Foto Parhan">
+    <h6>
+      <p><strong>Nama :</strong> Parhan</p>
+      <p><strong>Umur :</strong> 20 Tahun</p>
+      <p><strong>Hobi :</strong> Boxing</p>
+      <p><strong>Alamat :</strong> Kalimantan Selatan</p>
+      <p><strong>NIM :</strong> 2511080012</p>
+    </h6>
+  </div>
+
+  <!-- TENTANG SAYA -->
+  <div id="tentang" class="container">
+    <h2>Tentang Saya</h2>
+    <p>
+      Saya berasal dari Kalimantan Selatan. Saya lulusan Pondok Pesantren Humaira. 
+      Setelah saya lulus mondok, saya langsung melanjutkan pendidikan ke jenjang kuliah di STIKOM EL RAHMA. 
+      Saya mengambil jurusan informatika (APQ). Saya berharap setelah kuliah mendapatkan skill dan keahlian 
+      untuk bisa menuju dunia kerja zaman sekarang. Zaman sekarang orang-orang banyak yang membutuhkan bidang IT.
+    </p>
+  </div>
+
+  <!-- HOBI -->
+  <div class="content1">
+    <ul>
+      <li>Saya Suka Ayam Bakar</li>
+      <li>Saya Suka Jeruk Garut</li>
+      <li>Saya Suka Dodol Garut</li>
+    </ul>
+  </div>
+
+  <!-- TABEL HOBI -->
+  <div id="border" class="content3">
+    <table border="2">
+      <tr><th>Hobi Saya</th></tr>
+      <tr><td>Latihan Boxing</td></tr>
+      <tr><td>Main Gitar</td></tr>
+      <tr><td>Berenang</td></tr>
+    </table>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Hubungi saya di sini gaes kita saling follow:</p>
+    <p>
+      📸 <a href="https://www.instagram.com/samubiyyyy" target="_blank">Instagram</a>
+    </p>
+    <p>Website Profil saya nih gaes.</p>
+  </footer>
+</body>
+</html> 
