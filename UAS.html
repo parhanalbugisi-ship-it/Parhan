@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Seminar Teknologi Kampus</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(44,62,80,0.75), rgba(52,152,219,0.75)),
+        url('https://images.unsplash.com/photo-1526378722484-bd91ca387e72');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    header {
+      text-align: center;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    header h1 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      margin: 5px 0;
+      font-size: 16px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .card {
+      flex: 1 1 300px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #2c3e50;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    button {
+      margin-top: 15px;
+      background: linear-gradient(135deg, #3498db, #2ecc71);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Seminar Teknologi Kampus</h1>
+  <p>Membahas Perkembangan Teknologi Terkini</p>
+  <p><strong>📅 20 Mei 2026</strong> | <strong>📍 Aula Kampus</strong></p>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Form Pendaftaran</h2>
+
+    <form id="formPendaftaran">
+      <label>Nama Lengkap</label>
+      <input type="text" id="nama">
+
+      <label>Email</label>
+      <input type="text" id="email">
+
+      <label>Nomor HP</label>
+      <input type="text" id="hp">
+
+      <label>Kategori Peserta</label>
+      <select id="kategori">
+        <option value="">-- Pilih --</option>
+        <option value="Mahasiswa">Mahasiswa</option>
+        <option value="Umum">Umum</option>
+      </select>
+
+      <button type="submit">Daftar Sekarang</button>
+    </form>
+
+    <div class="message" id="pesan"></div>
+  </div>
+
+  <div class="card">
+    <h2>Daftar Peserta</h2>
+    <p>Jumlah Peserta: <strong id="jumlahPeserta">0</strong> / 50</p>
+    <ul id="listPeserta"></ul>
+  </div>
+
+</div>
+
+<script>
+  const form = document.getElementById("formPendaftaran");
+  const pesan = document.getElementById("pesan");
+  const listPeserta = document.getElementById("listPeserta");
+  const jumlahPesertaEl = document.getElementById("jumlahPeserta");
+
+  let peserta = [];
+  const MAX_KUOTA = 50;
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nama = document.getElementById("nama").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const hp = document.getElementById("hp").value.trim();
+    const kategori = document.getElementById("kategori").value;
+
+    if (!nama || !email || !hp || !kategori) {
+      pesan.style.color = "red";
+      pesan.textContent = "Semua input wajib diisi!";
+      return;
+    }
+
+    if (!email.includes("@")) {
+      pesan.style.color = "red";
+      pesan.textContent = "Email harus mengandung karakter @";
+      return;
+    }
+
+    if (isNaN(hp)) {
+      pesan.style.color = "red";
+      pesan.textContent = "Nomor HP hanya boleh angka";
+      return;
+    }
+
+    if (peserta.length >= MAX_KUOTA) {
+      pesan.style.color = "red";
+      pesan.textContent = "Pendaftaran ditutup, kuota sudah penuh";
+      return;
+    }
+
+    peserta.push({ nama, kategori });
+
+    const li = document.createElement("li");
+    li.textContent = `${nama} - ${kategori}`;
+    listPeserta.appendChild(li);
+
+    jumlahPesertaEl.textContent = peserta.length;
+
+    pesan.style.color = "green";
+    pesan.textContent = "Pendaftaran berhasil!";
+
+    form.reset();
+  });
+</script>
+
+</body>
+</html>
